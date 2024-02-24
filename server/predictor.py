@@ -1,8 +1,14 @@
 # server/predictor.py
 import sys
 import traceback
+<<<<<<< HEAD
+from keras.preprocessing.sequence import pad_sequences
+import pickle
+import numpy as np
+=======
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
+>>>>>>> parent of 06ed8b2 (final)
 
 # Define the global vectorizer variable
 vectorizer = None
