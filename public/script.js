@@ -28,14 +28,13 @@ function makePrediction() {
                 console.log("Received Data:", data);
 
                 // Check if data.prediction is a valid number
-                if (!isNaN(data.prediction)) {
+                if (!(data.prediction === null)) {
                     // Convert prediction to a user-friendly format (0 or 1)
-                    var binaryPrediction = data.prediction;
-                    var pred = (binaryPrediction == 1) ? "Reliable" : "Unreliable";
+                    
 
                     // Update the result element with the binary prediction
                     var resultElement = document.getElementById("result");
-                    resultElement.innerHTML = "Prediction: " + pred;
+                    resultElement.innerHTML = (parseFloat(data.prediction.slice(1,-1))*100).toFixed(2)+ "% Reliable";
                 } else {
                     // Display an error message
                     handlePredictionError("Invalid prediction value");
