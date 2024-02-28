@@ -19,7 +19,6 @@ app.post('/predict', (req, res) => {
         pythonProcess.stdout.on('data', (data) => {
             result += data.toString();
         });
-
         pythonProcess.on('close', (code) => {
             if (code === 0) {
                 res.json({ prediction: result.trim() });
