@@ -24,6 +24,7 @@ app.post('/predict', (req, res) => {
             if (code === 0) {
                 res.json({ prediction: result.trim() });
             } else {
+                console.error('Python script execution failed with exit code:', code)
                 res.status(500).json({ error: 'Error executing the Python script' });
             }
         });
